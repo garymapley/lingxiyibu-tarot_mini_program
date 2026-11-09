@@ -1,0 +1,23 @@
+<view class="container">
+  <view class="top-bar">
+    <view class="title">管理员后台</view>
+  </view>
+
+  <view class="card-box">
+    <view class="card">
+      <view class="num">{{userCount}}</view>
+      <view class="text">总用户数</view>
+    </view>
+    <view class="card">
+      <view class="num">{{recordCount}}</view>
+      <view class="text">占卜记录</view>
+    </view>
+  </view>
+
+  <view class="btn-list">
+    <button bindtap="goUser">用户管理</button>
+    <button bindtap="goRecord">占卜记录</button>
+    <!-- 新增：返回用户端按钮，让首页更完整 -->
+    <button class="back-btn" bindtap="goBackUser">返回用户端</button>
+  </view>
+</view>

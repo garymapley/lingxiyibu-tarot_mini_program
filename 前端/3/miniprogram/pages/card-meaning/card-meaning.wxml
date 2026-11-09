@@ -1,0 +1,48 @@
+<navigation-bar title="灵犀一卜" back="{{false}}" color="white" background="transparent" extClass="nav-light"></navigation-bar>
+
+<view class="container">
+  <!-- 介绍文字 -->
+  <view class="intro-text">
+    <text>Tarot起源于15世纪,古老的原型充满了神秘和丰富的象征意义,一起来探索78张塔罗卡牌吧!</text>
+  </view>
+
+  <!-- 搜索框 -->
+  <view class="search-bar">
+    <input 
+      class="search-input" 
+      placeholder="请输入关键字" 
+      value="{{searchKeyword}}"
+      bindinput="onSearchInput"
+    />
+    <text class="search-icon">🔍</text>
+  </view>
+
+  <!-- 分类标签 -->
+  <scroll-view class="category-tabs" scroll-x>
+    <view 
+      class="category-tab {{currentCategory === item.id ? 'active' : ''}}"
+      wx:for="{{categories}}"
+      wx:key="id"
+      data-category="{{item.id}}"
+      bindtap="onCategoryChange"
+    >
+      <text>{{item.name}}</text>
+    </view>
+  </scroll-view>
+
+  <!-- 卡片网格 -->
+  <scroll-view class="card-grid-container" scroll-y>
+    <view class="card-grid">
+      <view 
+        class="card-item"
+        wx:for="{{displayedCards}}"
+        wx:key="id"
+        data-id="{{item.id}}"
+        bindtap="viewCardDetail"
+      >
+        <image class="card-image" src="{{item.image}}" mode="aspectFit"></image>
+        <text class="card-name">{{item.name}}</text>
+      </view>
+    </view>
+  </scroll-view>
+</view>

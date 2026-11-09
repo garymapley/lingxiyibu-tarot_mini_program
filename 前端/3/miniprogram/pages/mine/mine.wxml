@@ -1,0 +1,61 @@
+<page-meta><navigation-bar title="灵犀一卜" back="{{false}}" color="white" background="transparent"></navigation-bar></page-meta>
+
+<view class="container">
+  <view class="user-section">
+    <!-- 🔴 关键：头像永远有兜底，未登录/加载失败都显示默认图 -->
+    <image 
+      class="avatar" 
+      src="{{userInfo.avatarUrl || 'https://tarot-1409233212.cos.ap-guangzhou.myqcloud.com/tarot_images/default-avatar.jpg'}}" 
+      mode="aspectFill"
+      binderror="onAvatarError"
+    ></image>
+    <text class="username">{{userInfo.nickName}}</text>
+  </view>
+
+  <view class="checkin-section">
+    <text class="section-title">本周签到</text>
+    <view class="week-days">
+      <view 
+        class="day-item {{index === currentDay ? 'today' : ''}} {{item ? 'checked' : ''}}"
+        wx:for="{{weekCheckIn}}"
+        wx:key="index"
+      >
+        <text class="day-label">{{['周一', '周二', '周三', '周四', '周五', '周六', '周日'][index]}}</text>
+      </view>
+    </view>
+    <view class="checkin-btn {{checkedInToday ? 'checked-in' : ''}}" bindtap="handleCheckIn">
+      <text>{{checkedInToday ? '已签到' : '立即签到'}}</text>
+    </view>
+  </view>
+
+  <view class="menu-list">
+    <view class="menu-item" bindtap="navigateToRecharge">
+      <text class="menu-icon">📄</text>
+      <text class="menu-text">个人信息</text>
+      <text class="menu-arrow">›</text>
+    </view>
+    <view class="menu-item" bindtap="navigateToHistory">
+      <text class="menu-icon">📖</text>
+      <text class="menu-text">我的占卜</text>
+      <text class="menu-arrow">›</text>
+    </view>
+    <view class="menu-item" bindtap="navigateToInvite">
+      <text class="menu-icon">🔗</text>
+      <text class="menu-text">个人收藏</text>
+      <text class="menu-arrow">›</text>
+    </view>
+
+    <view
+      wx:if="{{isLogin && role === 'admin'}}"
+      class="menu-item admin-item"
+      bindtap="goAdmin"
+    >
+      <text class="menu-icon">⚜️</text>
+      <text class="menu-text">管理员后台</text>
+      <text class="menu-arrow">›</text>
+    </view>
+
+    <button wx:if="{{!isLogin}}" bindtap="goToLogin" class="login-btn">点击登录</button>
+    <button wx:else bindtap="handleLogout" class="login-btn">退出登录</button>
+  </view>
+</view>

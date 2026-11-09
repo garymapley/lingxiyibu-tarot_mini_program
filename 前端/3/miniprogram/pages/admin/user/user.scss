@@ -1,0 +1,147 @@
+page {
+  background: #12121C;
+  min-height: 100vh;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  padding: 132rpx 0rpx 24rpx 0rpx; // 左右边距彻底清零
+  padding-top: calc(env(safe-area-inset-top) + 92rpx);
+  display: flex;
+  flex-direction: column;
+  gap: 20rpx;
+  width: 100%; // 强制铺满屏幕宽度
+  box-sizing: border-box; // 关键：保证padding不溢出
+}
+
+/* 顶部返回栏 */
+.back-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 88rpx;
+  padding: 0;
+  position: relative;
+
+  .back-btn {
+    position: fixed;
+    left: 10rpx;
+    top: calc(env(safe-area-inset-top) + 78rpx);
+    z-index: 99;
+    display: flex;
+    align-items: center;
+    gap: 8rpx;
+    padding: 10rpx 18rpx;
+    border-radius: 30rpx;
+    background: rgba(157, 80, 251, 0.2);
+    border: 1px solid rgba(157, 80, 251, 0.35);
+
+    .back-icon {
+      font-size: 36rpx;
+      line-height: 1;
+      color: #c47cff;
+      font-weight: bold;
+    }
+
+    text {
+      font-size: 26rpx;
+      color: #c47cff;
+    }
+  }
+
+  .page-title {
+    width: 100%;
+    text-align: center;
+    font-size: 38rpx;
+    font-weight: bold;
+    color: #fff;
+    letter-spacing: 2rpx;
+    white-space: nowrap;
+  }
+}
+
+.list-box {
+  display: flex;
+  flex-direction: column;
+  gap: 24rpx;
+  margin-top: 8rpx;
+  width: 100%; // 强制铺满
+}
+
+.item {
+  background: #1E1E2F;
+  border-radius: 22rpx;
+  padding: 32rpx;
+  border: 1px solid rgba(157, 80, 251, 0.15);
+  width: 100%; // 强制铺满
+  box-sizing: border-box; // 关键：保证padding不溢出
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 24rpx;
+
+  .item-info {
+    display: flex;
+    flex-direction: column;
+    gap: 14rpx;
+
+    .nickname-row,
+    .meta-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12rpx;
+    }
+
+    .label {
+      font-size: 28rpx;
+      color: #b7b7d6;
+      flex-shrink: 0;
+    }
+
+    .nickname {
+      font-size: 34rpx;
+      color: #E0E0F0;
+      font-weight: 500;
+      flex: 1;
+      word-break: break-all;
+    }
+
+    .role {
+      font-size: 27rpx;
+      color: #A0A0C0;
+    }
+
+    .uid {
+      font-size: 27rpx;
+      color: #8f8faf;
+    }
+  }
+
+  .item-btn {
+    display: flex;
+    justify-content: flex-end;
+    gap: 18rpx;
+
+    button {
+      border-radius: 12rpx;
+      font-size: 25rpx;
+      padding: 0 24rpx;
+      height: 62rpx;
+      line-height: 62rpx;
+      border: none;
+
+      &:nth-child(1) {
+        background: #9D50FB;
+        color: #fff;
+      }
+
+      &:nth-child(2) {
+        background: #FF4757;
+        color: #fff;
+      }
+    }
+  }
+}

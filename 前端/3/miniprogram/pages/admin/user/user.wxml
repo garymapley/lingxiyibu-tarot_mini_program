@@ -1,0 +1,29 @@
+<view class="container">
+  <view class="back-bar">
+    <view class="back-btn" bindtap="goBack">
+      <text class="back-icon">‹</text>
+      <text>返回</text>
+    </view>
+    <text class="page-title">用户管理</text>
+  </view>
+
+  <view class="list-box">
+    <view wx:for="{{list}}" wx:key="id" class="item">
+      <view class="item-info">
+        <view class="nickname-row">
+          <text class="label">昵称：</text>
+          <text class="nickname">{{item.nickname}}</text>
+        </view>
+        <view class="meta-row">
+          <text class="role">角色：{{item.role == 'admin' ? '管理员' : '用户'}}</text>
+          <text class="uid">ID：{{item.id}}</text>
+        </view>
+      </view>
+
+    
+      <view class="item-btn">
+        <button size="mini" type="warn" bindtap="deleteUser" data-id="{{item.id}}">删除</button>
+      </view>
+    </view>
+  </view>
+</view>

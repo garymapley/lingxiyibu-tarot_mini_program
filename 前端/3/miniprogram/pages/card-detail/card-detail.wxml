@@ -1,0 +1,36 @@
+<navigation-bar title="{{card ? card.name : '加载中'}}" back="{{true}}" color="white" background="transparent" extClass="nav-light"></navigation-bar>
+
+<view class="container" wx:if="{{card}}">
+  <view class="card-box">
+    <image src="{{card.image}}" mode="widthFix" class="card-img"></image>
+  </view>
+
+  <view class="info">
+    <view class="title">{{card.name}}</view>
+    <view class="english">{{card.nameEn}}</view>
+    <view class="type">
+      {{card.category === 'major' ? '大阿卡那' :
+        card.category === 'wands' ? '权杖系列' :
+        card.category === 'cups' ? '圣杯系列' :
+        card.category === 'swords' ? '宝剑系列' : '钱币系列'}}
+    </view>
+  </view>
+
+  <view class="meaning-box">
+    <view class="label">正位含义</view>
+    <view class="text-list">
+      <text wx:for="{{card.upright}}" wx:key="index">• {{item}} </text>
+    </view>
+  </view>
+
+  <view class="meaning-box">
+    <view class="label">逆位含义</view>
+    <view class="text-list">
+      <text wx:for="{{card.reversed}}" wx:key="index">• {{item}} </text>
+    </view>
+  </view>
+</view>
+
+<view class="container" wx:else>
+  <text class="error-text">未找到该卡牌信息</text>
+</view>

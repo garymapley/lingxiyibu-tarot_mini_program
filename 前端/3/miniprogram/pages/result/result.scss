@@ -1,0 +1,151 @@
+/* 修复页面背景，确保滚动时全程覆盖 */
+page {
+  background: linear-gradient(180deg, #0a0a0a 0%, #1a1a2e 100%);
+  color: #fff;
+  padding: 20rpx;
+  box-sizing: border-box;
+  /* 移除 min-height: 100vh，改用 height: auto 让页面自适应内容高度 */
+  height: auto;
+  min-height: 100%;
+}
+
+/* 页面根容器，强制撑满背景 */
+.page {
+  background: linear-gradient(180deg, #0a0a0a 0%, #1a1a2e 100%);
+  min-height: 100vh;
+  padding-bottom: 40rpx; /* 给底部留安全间距，避免贴边 */
+  box-sizing: border-box;
+}
+
+// 本次牌面区域
+.card-section {
+  margin-bottom: 40rpx;
+}
+
+.section-title {
+  font-size: 32rpx;
+  color: #ffd700;
+  font-weight: bold;
+  margin-bottom: 20rpx;
+  display: block;
+}
+
+// 红框网格布局
+.card-grid {
+  background: rgba(88, 60, 130, 0.35);
+  border: 1rpx solid rgba(147, 112, 219, 0.4);
+  border-radius: 16rpx;
+  padding: 20rpx;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15rpx;
+  justify-content: center;
+}
+
+.card-item {
+  width: 105rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card-wrap {
+  width: 100%;
+  position: relative;
+}
+
+.card-img {
+  width: 100%;
+  height: auto;
+  border-radius: 8rpx;
+}
+
+// 逆位旋转样式
+.reverse {
+  transform: rotate(180deg);
+  transform-origin: center center;
+}
+
+.card-name {
+  font-size: 22rpx;
+  color: #eee;
+  margin-top: 8rpx;
+  text-align: center;
+}
+
+.card-pos {
+  font-size: 20rpx;
+  color: #ccc;
+  margin-top: 2rpx;
+}
+
+// 通用内容区域（总结/详情/建议）
+.content-section {
+  margin-bottom: 30rpx;
+}
+
+// 整体总结
+.summary-box {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 16rpx;
+  padding: 25rpx;
+  /* 确保容器撑满，避免背景断层 */
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.summary-tag {
+  font-size: 24rpx;
+  color: #9370db;
+  display: block;
+  margin-bottom: 10rpx;
+}
+
+.summary-text {
+  font-size: 26rpx;
+  line-height: 1.7;
+  color: #eee;
+  /* 让text撑满容器，背景色覆盖全宽 */
+  display: block;
+  width: 100%;
+}
+
+// 详细解读
+.detail-box {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 16rpx;
+  padding: 25rpx;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.detail-text {
+  font-size: 26rpx;
+  line-height: 1.7;
+  color: #eee;
+  white-space: pre-line;
+  /* 核心修复：让text变成块级元素，撑满整个容器，背景色全量覆盖 */
+  display: block;
+  width: 100%;
+  /* 确保长文本不会溢出容器 */
+  word-wrap: break-word;
+  word-break: break-all;
+}
+
+// 行动建议
+.advice-box {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 16rpx;
+  padding: 25rpx;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.advice-text {
+  font-size: 26rpx;
+  line-height: 1.7;
+  color: #eee;
+  display: block;
+  width: 100%;
+  word-wrap: break-word;
+}

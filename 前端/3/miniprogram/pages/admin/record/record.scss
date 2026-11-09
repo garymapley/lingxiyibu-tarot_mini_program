@@ -1,0 +1,170 @@
+page {
+  background: #12121C;
+  min-height: 100vh;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+}
+/* ========== 优化后：极简筛选栏样式 ========== */
+.filter-bar {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 16rpx;
+  padding: 20rpx 24rpx;
+  background: #1A1A27;
+  border-radius: 16rpx;
+  margin: 0 24rpx 20rpx 24rpx;
+  box-sizing: border-box;
+}
+
+.filter-input {
+  flex: 1;
+  min-width: 120rpx;
+  height: 70rpx;
+  background: #2A2A3F;
+  border-radius: 12rpx;
+  padding: 0 16rpx;
+  color: #fff;
+  font-size: 26rpx;
+  border: 1px solid rgba(157, 80, 251, 0.2);
+}
+
+.filter-picker {
+  flex: 1.2;
+  height: 70rpx;
+  line-height: 70rpx;
+  padding: 0 16rpx;
+  background: #2A2A3F;
+  border-radius: 12rpx;
+  color: #fff;
+  font-size: 26rpx;
+  border: 1px solid rgba(157, 80, 251, 0.2);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.filter-btn {
+  height: 70rpx;
+  line-height: 70rpx;
+  padding: 0 24rpx;
+  border-radius: 12rpx;
+  font-size: 26rpx;
+  color: #fff;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.filter-btn.primary {
+  background: linear-gradient(135deg, #9D50FB 0%, #c47cff 100%);
+}
+
+.filter-btn.gray {
+  background: #444466;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+/* ========== 容器：左右彻底 0 边距 ========== */
+.container {
+  padding: 132rpx 0 24rpx 0; /* 左右 = 0 */
+  padding-top: calc(env(safe-area-inset-top) + 92rpx);
+  display: flex;
+  flex-direction: column;
+  gap: 20rpx;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.back-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 88rpx;
+  padding: 0;
+  position: relative;
+
+  .back-btn {
+    position: fixed;
+    left: 10rpx;
+    top: calc(env(safe-area-inset-top) + 105rpx);
+    z-index: 99;
+    display: flex;
+    align-items: center;
+    gap: 8rpx;
+    padding: 10rpx 18rpx;
+    border-radius: 30rpx;
+    background: rgba(157, 80, 251, 0.2);
+    border: 1px solid rgba(157, 80, 251, 0.35);
+
+    .back-icon {
+      font-size: 36rpx;
+      line-height: 1;
+      color: #c47cff;
+      font-weight: bold;
+    }
+
+    text {
+      font-size: 26rpx;
+      color: #c47cff;
+    }
+  }
+
+  .page-title {
+    width: 100%;
+    text-align: center;
+    font-size: 38rpx;
+    font-weight: bold;
+    color: #fff;
+    letter-spacing: 2rpx;
+    white-space: nowrap;
+  }
+}
+
+.list-box {
+  display: flex;
+  flex-direction: column;
+  gap: 20rpx;
+  margin-top: 8rpx;
+  width: 100%; /* 强制铺满 */
+}
+
+/* ========== 列表项：真正铺满屏幕 ========== */
+.item {
+  background: #1E1E2F;
+  border-radius: 0; /* 🔴 去掉圆角，你就能看到真的贴边了！ */
+  padding: 26rpx 24rpx;
+  border: 1px solid rgba(157, 80, 251, 0.15);
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12rpx;
+
+  .userId,
+  .arrayName,
+  .time {
+    width: 100%;
+    text-align: left;
+    line-height: 1.5;
+    word-break: break-all;
+    white-space: normal;
+  }
+
+  .userId {
+    font-size: 30rpx;
+    color: #E0E0F0;
+    font-weight: 500;
+  }
+
+  .arrayName {
+    font-size: 30rpx;
+    color: #c47cff;
+    font-weight: 500;
+  }
+
+  .time {
+    font-size: 25rpx;
+    color: #A0A0C0;
+  }
+}

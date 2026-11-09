@@ -1,0 +1,37 @@
+<view class="container">
+  <view class="back-bar">
+    <view class="back-btn" bindtap="goBack">
+      <text class="back-icon">‹</text>
+      <text>返回</text>
+    </view>
+    <text class="page-title">占卜记录</text>
+  </view>
+
+  <!-- 🔴 优化后：极简筛选栏 -->
+  <view class="filter-bar">
+    <!-- 用户ID输入框 -->
+    <input class="filter-input" placeholder="用户ID" type="number" bindinput="onUserIdInput" value="{{filterUserId}}" />
+    
+    <!-- 牌阵选择器 -->
+    <picker bindchange="onArrayChange" value="{{arrayIndex}}" range="{{arrayList}}">
+      <view class="filter-picker">{{arrayList[arrayIndex]}}</view>
+    </picker>
+
+    <!-- 🔴 合并为：单个时间选择器 -->
+    <picker mode="date" bindchange="onDateChange" value="{{selectDate}}">
+      <view class="filter-picker">{{selectDate || '选择日期'}}</view>
+    </picker>
+
+    <!-- 操作按钮 -->
+    <view class="filter-btn primary" bindtap="onFilter">筛选</view>
+    <view class="filter-btn gray" bindtap="onReset">重置</view>
+  </view>
+
+  <view class="list-box">
+    <view wx:for="{{list}}" wx:key="id" class="item" bindtap="goToResult" data-id="{{item.id}}">
+      <view class="userId">用户ID：{{item.userId}}</view>
+      <view class="arrayName">牌阵：{{ item.arrayName || '暂无牌阵' }}</view>
+      <view class="time">时间：{{item.createTime}}</view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,71 @@
+page {
+  min-height: 100vh;
+  background: linear-gradient(180deg, #0a0a0a 0%, #1a1a2e 100%);
+  padding: 20rpx;
+  color: #fff;
+}
+
+.list {
+  margin-top: 20rpx;
+}
+
+.item {
+  background: rgba(255,255,255,0.05);
+  border-radius: 16rpx;
+  padding: 30rpx;
+  margin-bottom: 20rpx;
+  border: 1rpx solid rgba(255,255,255,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.item-body {
+  flex: 1;
+}
+
+.title {
+  color: #ffd700;
+  font-size: 28rpx;
+  display: block;
+  margin-bottom: 10rpx;
+}
+
+.time {
+  color: #ccc;
+  font-size: 22rpx;
+}
+
+/* 按钮组 */
+.item-actions {
+  display: flex;
+  gap: 20rpx;
+  margin-left: 20rpx;
+}
+
+.action-btn {
+  width: 50rpx;
+  height: 50rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon {
+  font-size: 32rpx;
+}
+
+.collect .icon {
+  color: #ffd700;
+}
+
+.delete .icon {
+  color: #ff4d4f;
+}
+
+.empty {
+  text-align: center;
+  padding: 150rpx 0;
+  color: #888;
+  font-size: 28rpx;
+}

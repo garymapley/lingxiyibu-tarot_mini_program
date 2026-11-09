@@ -1,0 +1,38 @@
+server:
+  port: ${SERVER_PORT:8088}
+
+spring:
+  application:
+    name: tarot-wechat-mini
+  datasource:
+    url: ${DB_URL}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+  redis:
+    host: ${REDIS_HOST:127.0.0.1}
+    port: ${REDIS_PORT:6379}
+    database: ${REDIS_DATABASE:0}
+    timeout: ${REDIS_TIMEOUT:5000ms}
+
+wechat:
+  mini:
+    appid: ${WECHAT_APP_ID}
+    secret: ${WECHAT_APP_SECRET}
+    login-url: https://api.weixin.qq.com/sns/jscode2session
+
+app:
+  token-expire-days: ${TOKEN_EXPIRE_DAYS:7}
+  exclude-paths: /wechat/login,/error,/static/**
+
+ai:
+  dashscope:
+    api-key: ${DASHSCOPE_API_KEY}
+
+tencent:
+  cos:
+    secret-id: ${TENCENT_COS_SECRET_ID}
+    secret-key: ${TENCENT_COS_SECRET_KEY}
+    bucket: ${TENCENT_COS_BUCKET}
+    region: ${TENCENT_COS_REGION:ap-guangzhou}
+

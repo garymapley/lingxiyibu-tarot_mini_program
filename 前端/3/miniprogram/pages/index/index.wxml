@@ -1,0 +1,54 @@
+<navigation-bar title="灵犀一卜" back="{{false}}" color="white" background="transparent"></navigation-bar>
+
+<view class="container">
+  <!-- 头部信息 -->
+  <view class="header">
+    <view class="app-title">
+      <text class="title-icon"></text>
+      <text class="title-text">灵犀一卜</text>
+    </view>
+    <text class="date-text">{{currentDate}}</text>
+  </view>
+
+  <!-- 主要内容区域 -->
+  <view class="main-content">
+    <!-- 左侧：塔罗牌 -->
+    <view class="card-section">
+      <image 
+        wx:if="{{currentCard}}" 
+        class="tarot-card" 
+        src="{{currentCard.image}}" 
+        mode="aspectFit"
+      ></image>
+      <text wx:if="{{currentCard}}" class="card-name">{{currentCard.name}} {{currentCard.position}}</text>
+    </view>
+
+    <!-- 右侧：每日指引 -->
+    <view class="guidance-section">
+      <view class="guidance-grid">
+        <view class="guidance-item">
+          <text class="guidance-label">幸运色</text>
+          <view class="color-display" style="background-color: {{luckyColor}};"></view>
+        </view>
+        <view class="guidance-item">
+          <text class="guidance-label">幸运数</text>
+          <view class="number-display">{{luckyNumber}}</view>
+        </view>
+        <view class="guidance-item full-width">
+          <text class="guidance-label">建议</text>
+          <view class="suggestions">
+            <text wx:for="{{suggestions}}" wx:key="index" class="suggestion-item">• {{item}}</text>
+          </view>
+        </view>
+        <view class="guidance-item full-width">
+          <text class="guidance-label">避免</text>
+          <view class="avoid-list">
+            <text wx:for="{{avoid}}" wx:key="index" class="avoid-item">• {{item}}</text>
+          </view>
+        </view>
+      </view>
+      <view class="guidance-text">{{guidance}}</view>
+    </view>
+  </view>
+
+</view>

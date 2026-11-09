@@ -1,0 +1,25 @@
+<navigation-bar title="登录" back="{{true}}" color="white" background="transparent" extClass="nav-light"></navigation-bar>
+
+<view class="login-page">
+  <view class="login-bg"></view>
+  <view class="login-back-btn" bindtap="goBack">
+    <text class="back-icon">‹</text>
+    <text>返回</text>
+  </view>
+
+  <view class="login-content">
+    <view class="login-logo">
+      <text class="login-title">灵犀一卜</text>
+      <text class="login-subtitle">登录后可同步头像与昵称，保存你的占卜记录</text>
+    </view>
+
+    <button 
+      class="login-btn" 
+      bindtap="onLoginTap"
+    >
+      微信一键登录
+    </button>
+
+    <text class="login-tip">我们仅会用于展示头像和昵称，不会泄露你的隐私信息。</text>
+  </view>
+</view>

@@ -1,0 +1,43 @@
+<navigation-bar title="个人信息" back="{{true}}" color="white" background="transparent" extClass="nav-light"></navigation-bar>
+
+<view class="container">
+  <view class="user-card">
+    <view class="avatar-wrap" bindtap="chooseAndUploadAvatar">
+      <image 
+        class="avatar" 
+        src="{{safeAvatarUrl}}" 
+        mode="aspectFill"
+        binderror="onImageError"
+      ></image>
+      <text class="change-avatar-text">更改头像</text>
+    </view>
+    <text class="nickname">{{nickName}}</text>
+  </view>
+
+  <view class="form-card">
+    <text class="card-title">编辑资料</text>
+
+    <view class="form-item">
+      <text class="label">用户昵称</text>
+      <input
+        class="input"
+        placeholder="请输入昵称"
+        value="{{nickName}}"
+        bindinput="onNickNameInput"
+        maxlength="20"
+      />
+    </view>
+
+    <view class="preview-item">
+      <text class="label">头像预览</text>
+      <image 
+        class="preview-avatar" 
+        src="{{safeAvatarUrl}}" 
+        mode="aspectFill"
+        binderror="onImageError"
+      ></image>
+    </view>
+
+    <button class="save-btn" bindtap="onSave">保存修改</button>
+  </view>
+</view>

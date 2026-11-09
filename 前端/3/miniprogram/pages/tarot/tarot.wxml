@@ -1,0 +1,30 @@
+<navigation-bar title="灵犀一卜" back="{{false}}" color="white" background="transparent"></navigation-bar>
+
+<view class="container">
+  <!-- 头部横幅 -->
+  <view class="header-banner">
+    <view class="banner-content">
+      <text class="banner-text">请选择合适的牌阵...</text>
+    </view>
+  </view>
+
+  <!-- 牌阵列表 -->
+  <scroll-view class="spread-list" scroll-y>
+    <view 
+      class="spread-item" 
+      wx:for="{{spreads}}" 
+      wx:key="id"
+      data-index="{{index}}"
+      bindtap="selectSpread"
+    >
+      <view class="spread-icon">
+        <text class="icon-text">{{index + 1}}</text>
+      </view>
+      <view class="spread-content">
+        <text class="spread-name">{{item.name}}</text>
+        <text class="spread-description">{{item.description}}</text>
+      </view>
+      <view class="spread-arrow">›</view>
+    </view>
+  </scroll-view>
+</view>

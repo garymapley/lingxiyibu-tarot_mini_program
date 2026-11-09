@@ -1,0 +1,29 @@
+<navigation-bar title="个人收藏" back="{{true}}" color="white" background="transparent" extClass="nav-light"></navigation-bar>
+
+<view class="page">
+  <view class="empty" wx:if="{{list.length === 0 && !loading}}">
+    <text>暂无收藏记录</text>
+  </view>
+
+  <view class="list" wx:else>
+    <!-- ✅ 把 bindtap 和 data-item 放在同一个节点，保证能拿到数据 -->
+    <view 
+      class="item" 
+      wx:for="{{list}}" 
+      wx:key="id" 
+      bindtap="goDetail"
+      data-item="{{item}}"
+    >
+      <view class="item-body">
+        <text class="title">{{item.question || '无问题'}}</text>
+        <text class="time">{{item.createTime}}</text>
+      </view>
+
+      <view class="item-actions">
+        <view class="action-btn collect" bindtap="cancelCollect" catchtap="cancelCollect" data-id="{{item.id}}">
+          <text class="icon">⭐</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

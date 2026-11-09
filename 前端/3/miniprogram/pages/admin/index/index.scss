@@ -1,0 +1,97 @@
+page {
+  background: #12121C;
+  min-height: 100vh;
+  color: #fff;
+}
+
+.container {
+  padding: 132rpx 30rpx 40rpx;
+  padding-top: calc(env(safe-area-inset-top) + 92rpx);
+  display: flex;
+  flex-direction: column;
+  gap: 40rpx;
+}
+
+.top-bar {
+  min-height: 88rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.title {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 40rpx;
+  font-weight: bold;
+  text-align: center;
+  margin: 0;
+  white-space: nowrap;
+  background: linear-gradient(90deg, #9D50FB, #D178F5);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.card-box {
+  display: flex;
+  gap: 24rpx;
+  margin-bottom: 20rpx;
+}
+
+.card {
+  flex: 1;
+  background: #1E1E2F;
+  border-radius: 24rpx;
+  padding: 50rpx 20rpx;
+  text-align: center;
+  border: 1px solid rgba(157, 80, 251, 0.2);
+  box-shadow: 0 8rpx 30rpx rgba(157, 80, 251, 0.1);
+}
+
+.num {
+  font-size: 64rpx;
+  font-weight: bold;
+  background: linear-gradient(90deg, #9D50FB, #D178F5);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin-bottom: 16rpx;
+}
+
+.text {
+  font-size: 28rpx;
+  color: #A0A0C0;
+}
+
+.btn-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24rpx;
+  margin-top: 20rpx;
+
+  button {
+    background: linear-gradient(90deg, #9D50FB, #D178F5);
+    border-radius: 20rpx;
+    color: #fff;
+    font-size: 32rpx;
+    font-weight: bold;
+    border: none;
+    height: 96rpx;
+    line-height: 96rpx;
+
+    &::after {
+      border: none;
+    }
+  }
+
+  .back-btn {
+    background: rgba(157, 80, 251, 0.15);
+    border: 1px solid rgba(157, 80, 251, 0.3);
+    color: #9D50FB;
+  }
+}

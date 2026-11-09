@@ -1,0 +1,33 @@
+<navigation-bar title="我的占卜" back="{{true}}" color="white" background="transparent" extClass="nav-light"></navigation-bar>
+
+<view class="page">
+  <!-- 空状态 -->
+  <view class="empty" wx:if="{{list.length === 0 && !loading}}">
+    <text>暂无占卜记录</text>
+  </view>
+
+  <!-- 列表 -->
+  <view class="list" wx:else>
+    <view 
+      class="item" 
+      wx:for="{{list}}" 
+      wx:key="id"
+      bindtap="goDetail"
+      data-item="{{item}}"
+    >
+      <view class="item-body">
+        <text class="title">{{item.question || '无问题'}}</text>
+        <text class="time">{{item.createTime}}</text>
+      </view>
+
+      <view class="item-actions">
+        <view class="action-btn collect" bindtap="toggleCollect" data-id="{{item.id}}">
+          <text class="icon">{{item.collected ? '⭐' : '☆'}}</text>
+        </view>
+        <view class="action-btn delete" bindtap="deleteRecord" data-id="{{item.id}}">
+          <text class="icon">🗑️</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

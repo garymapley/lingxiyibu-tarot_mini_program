@@ -1,0 +1,42 @@
+<view class="tab-bar">
+  <view 
+    class="tab-item {{current === 0 ? 'active' : ''}}" 
+    bindtap="switchTab" 
+    data-index="0"
+  >
+    <view class="icon-wrapper">
+      <view class="icon icon-home"></view>
+    </view>
+    <text class="label">指引</text>
+  </view>
+  <view 
+    class="tab-item {{current === 1 ? 'active' : ''}}" 
+    bindtap="switchTab" 
+    data-index="1"
+  >
+    <view class="icon-wrapper">
+      <view class="icon icon-tarot"></view>
+    </view>
+    <text class="label">塔罗</text>
+  </view>
+  <view 
+    class="tab-item {{current === 2 ? 'active' : ''}}" 
+    bindtap="switchTab" 
+    data-index="2"
+  >
+    <view class="icon-wrapper">
+      <view class="icon icon-meaning"></view>
+    </view>
+    <text class="label">牌意</text>
+  </view>
+  <view 
+    class="tab-item {{current === 3 ? 'active' : ''}}" 
+    bindtap="switchTab" 
+    data-index="3"
+  >
+    <view class="icon-wrapper">
+      <view class="icon icon-profile"></view>
+    </view>
+    <text class="label">我的</text>
+  </view>
+</view>

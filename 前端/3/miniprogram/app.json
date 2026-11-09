@@ -1,0 +1,64 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/tarot/tarot",
+    "pages/card-meaning/card-meaning",
+    "pages/mine/mine",
+    "pages/divination/divination",
+    "pages/logs/logs",
+    "pages/login/login",
+    "pages/userinfo/userinfo",
+    "pages/card-detail/card-detail",
+    "pages/result/result",
+    "pages/history/history",
+    "pages/collection/collection",
+    "pages/admin/index/index",
+    "pages/admin/user/user",
+    "pages/admin/record/record"
+  
+  ],
+  "window": {
+    "navigationBarTextStyle": "white",
+    "navigationStyle": "custom",
+    "backgroundColor": "#0a0a0a",
+    "backgroundTextStyle": "light"
+  },
+  "tabBar": {
+    "custom": true,
+    "color": "#999999",
+    "selectedColor": "#FFD700",
+    "backgroundColor": "#1a1a1a",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "指引"
+      },
+      {
+        "pagePath": "pages/tarot/tarot",
+        "text": "塔罗"
+      },
+      {
+        "pagePath": "pages/card-meaning/card-meaning",
+        "text": "牌意"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "text": "我的"
+      }
+    ]
+  },
+  "style": "v2",
+  "rendererOptions": {
+    "skyline": {
+      "defaultDisplayBlock": true,
+      "defaultContentBox": true,
+      "disableABTest": true,
+      "sdkVersionBegin": "3.0.0",
+      "sdkVersionEnd": "15.255.255"
+    }
+  },
+  "componentFramework": "glass-easel",
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents"
+}

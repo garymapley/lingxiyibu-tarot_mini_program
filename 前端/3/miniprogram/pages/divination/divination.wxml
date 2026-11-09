@@ -1,0 +1,210 @@
+<navigation-bar title="{{spread.name}}" back="{{true}}" color="white" background="transparent" extClass="nav-light"></navigation-bar>
+
+<view class="container {{hasStyledLayout ? 'spread-page' : ''}} {{isLoversReunion ? 'lovers-reunion-page' : ''}}">
+  <!-- 恋人复合牌阵 -->
+  <block wx:if="{{isLoversReunion}}">
+    <view class="spread-info spread-info--compact">
+      <text class="spread-name">{{spread.name}}</text>
+      <text class="spread-desc">{{spread.description}}</text>
+    </view>
+    <view class="cards-area cards-area--lovers">
+      <view
+        class="card-slot card-slot--labeled {{shuffled && cards[item.cardIndex] ? 'filled' : ''}}"
+        wx:for="{{gridSlots}}"
+        wx:key="cardIndex"
+      >
+        <view class="card-slot__label">{{spread.positionLabels[item.labelIndex]}}</view>
+        <view class="card-slot__img-wrap">
+          <!-- 统一image标签格式：加reverse类 + mode="widthFix"（微信小程序最优适配） -->
+<image 
+  wx:if="{{shuffled && cards[item.cardIndex]}}" 
+  class="card-image {{cards[item.cardIndex].isReverse ? 'reverse' : ''}}"
+  src="{{cards[item.cardIndex].image}}"
+  mode="widthFix"
+></image>
+          <text wx:else class="card-placeholder">?</text>
+        </view>
+      </view>
+    </view>
+    <view class="actions actions--above-intro">
+      <button class="action-btn shuffle-btn {{dealing ? 'dealing' : ''}}" bindtap="shuffleCards" disabled="{{dealing}}">{{dealing ? '洗牌中...' : '洗牌发牌'}}</button>
+      <button class="action-btn result-btn" bindtap="viewResult" disabled="{{!shuffled}}">结果分析</button>
+    </view>
+    <view class="spread-intro" wx:if="{{spread.introText}}">
+      <text class="spread-intro__text">{{spread.introText}}</text>
+    </view>
+    <view class="question-input-wrap">
+      <input class="question-input" placeholder="请输入您的问题，在塔罗中找到答案吧..." value="{{questionInput}}" bindinput="onQuestionInput" />
+    </view>
+    <view class="example-questions" wx:if="{{spread.exampleQuestions && spread.exampleQuestions.length > 0}}">
+      <view class="example-q" wx:for="{{spread.exampleQuestions}}" wx:key="index" data-question="{{item}}" bindtap="onExampleQuestionTap">
+        <text>{{item}}</text>
+      </view>
+    </view>
+  </block>
+
+  <!-- 三牌阵、时间之流：3 张横排 -->
+  <block wx:elif="{{layoutType === 'three-card' || layoutType === 'time-flow'}}">
+    <view class="spread-info spread-info--compact">
+      <text class="spread-name">{{spread.name}}</text>
+      <text class="spread-desc">{{spread.description}}</text>
+    </view>
+    <view class="cards-area cards-area--three">
+      <view
+        class="card-slot card-slot--labeled {{shuffled && cards[item.cardIndex] ? 'filled' : ''}}"
+        wx:for="{{gridSlots}}"
+        wx:key="cardIndex"
+      >
+        <view class="card-slot__label">{{spread.positionLabels[item.labelIndex]}}</view>
+        <view class="card-slot__img-wrap">
+          <!-- 统一image标签格式：加reverse类 + mode="widthFix"（微信小程序最优适配） -->
+<image 
+  wx:if="{{shuffled && cards[item.cardIndex]}}" 
+  class="card-image {{cards[item.cardIndex].isReverse ? 'reverse' : ''}}"
+  src="{{cards[item.cardIndex].image}}"
+  mode="widthFix"
+></image>
+          <text wx:else class="card-placeholder">?</text>
+        </view>
+      </view>
+    </view>
+    <view class="actions actions--above-intro">
+      <button class="action-btn shuffle-btn {{dealing ? 'dealing' : ''}}" bindtap="shuffleCards" disabled="{{dealing}}">{{dealing ? '洗牌中...' : '洗牌发牌'}}</button>
+      <button class="action-btn result-btn" bindtap="viewResult" disabled="{{!shuffled}}">结果分析</button>
+    </view>
+    <view class="spread-intro" wx:if="{{spread.introText}}">
+      <text class="spread-intro__text">{{spread.introText}}</text>
+    </view>
+    <view class="question-input-wrap">
+      <input class="question-input" placeholder="请输入您的问题，在塔罗中找到答案吧..." value="{{questionInput}}" bindinput="onQuestionInput" />
+    </view>
+    <view class="example-questions" wx:if="{{spread.exampleQuestions && spread.exampleQuestions.length > 0}}">
+      <view class="example-q" wx:for="{{spread.exampleQuestions}}" wx:key="index" data-question="{{item}}" bindtap="onExampleQuestionTap">
+        <text>{{item}}</text>
+      </view>
+    </view>
+  </block>
+
+  <!-- 二选一牌阵：5 张特殊布局 -->
+  <block wx:elif="{{layoutType === 'two-choices'}}">
+    <view class="spread-info spread-info--compact">
+      <text class="spread-name">{{spread.name}}</text>
+      <text class="spread-desc">{{spread.description}}</text>
+    </view>
+    <view class="cards-area cards-area--two-choices">
+      <view
+        class="card-slot card-slot--labeled {{shuffled && cards[item.cardIndex] ? 'filled' : ''}}"
+        wx:for="{{gridSlots}}"
+        wx:key="cardIndex"
+      >
+        <view class="card-slot__label">{{spread.positionLabels[item.labelIndex]}}</view>
+        <view class="card-slot__img-wrap">
+          <!-- 统一image标签格式：加reverse类 + mode="widthFix"（微信小程序最优适配） -->
+<image 
+  wx:if="{{shuffled && cards[item.cardIndex]}}" 
+  class="card-image {{cards[item.cardIndex].isReverse ? 'reverse' : ''}}"
+  src="{{cards[item.cardIndex].image}}"
+  mode="widthFix"
+></image>
+          <text wx:else class="card-placeholder">?</text>
+        </view>
+      </view>
+    </view>
+    <view class="actions actions--above-intro">
+      <button class="action-btn shuffle-btn {{dealing ? 'dealing' : ''}}" bindtap="shuffleCards" disabled="{{dealing}}">{{dealing ? '洗牌中...' : '洗牌发牌'}}</button>
+      <button class="action-btn result-btn" bindtap="viewResult" disabled="{{!shuffled}}">结果分析</button>
+    </view>
+    <view class="spread-intro" wx:if="{{spread.introText}}">
+      <text class="spread-intro__text">{{spread.introText}}</text>
+    </view>
+    <view class="question-input-wrap">
+      <input class="question-input" placeholder="请输入您的问题，在塔罗中找到答案吧..." value="{{questionInput}}" bindinput="onQuestionInput" />
+    </view>
+    <view class="example-questions" wx:if="{{spread.exampleQuestions && spread.exampleQuestions.length > 0}}">
+      <view class="example-q" wx:for="{{spread.exampleQuestions}}" wx:key="index" data-question="{{item}}" bindtap="onExampleQuestionTap">
+        <text>{{item}}</text>
+      </view>
+    </view>
+  </block>
+
+  <!-- 单牌阵：1 张居中 -->
+  <block wx:elif="{{layoutType === 'single-card'}}">
+    <view class="spread-info spread-info--compact">
+      <text class="spread-name">{{spread.name}}</text>
+      <text class="spread-desc">{{spread.description}}</text>
+    </view>
+    <view class="cards-area cards-area--single">
+      <view
+        class="card-slot card-slot--labeled {{shuffled && cards[item.cardIndex] ? 'filled' : ''}}"
+        wx:for="{{gridSlots}}"
+        wx:key="cardIndex"
+      >
+        <view class="card-slot__label">{{spread.positionLabels[item.labelIndex]}}</view>
+        <view class="card-slot__img-wrap">
+          <!-- 统一image标签格式：加reverse类 + mode="widthFix"（微信小程序最优适配） -->
+<image 
+  wx:if="{{shuffled && cards[item.cardIndex]}}" 
+  class="card-image {{cards[item.cardIndex].isReverse ? 'reverse' : ''}}"
+  src="{{cards[item.cardIndex].image}}"
+  mode="widthFix"
+></image>
+          <text wx:else class="card-placeholder">?</text>
+        </view>
+      </view>
+    </view>
+    <view class="actions actions--above-intro">
+  <!-- 洗牌发牌按钮：增加空值校验 -->
+  <button
+    class="action-btn shuffle-btn {{dealing ? 'dealing' : ''}}"
+    bindtap="shuffleCards"
+    disabled="{{dealing}}"
+  >
+    {{dealing ? '洗牌中...' : '洗牌发牌'}}
+  </button>
+
+  <!-- 结果分析按钮：必须洗牌后才能点 -->
+  <button
+    class="action-btn result-btn"
+    bindtap="viewResult"
+    disabled="{{!shuffled}}"
+  >
+    结果分析
+  </button>
+</view>
+    <view class="spread-intro" wx:if="{{spread.introText}}">
+      <text class="spread-intro__text">{{spread.introText}}</text>
+    </view>
+    <view class="question-input-wrap">
+      <input class="question-input" placeholder="请输入您的问题，在塔罗中找到答案吧..." value="{{questionInput}}" bindinput="onQuestionInput" />
+    </view>
+    <view class="example-questions" wx:if="{{spread.exampleQuestions && spread.exampleQuestions.length > 0}}">
+      <view class="example-q" wx:for="{{spread.exampleQuestions}}" wx:key="index" data-question="{{item}}" bindtap="onExampleQuestionTap">
+        <text>{{item}}</text>
+      </view>
+    </view>
+  </block>
+
+  <!-- 其他/默认牌阵：仅牌+按钮 -->
+  <block wx:else>
+    <view class="spread-info">
+      <text class="spread-name">{{spread.name}}</text>
+      <text class="spread-desc">{{spread.description}}</text>
+    </view>
+    <view class="cards-area">
+      <view class="card-slot {{shuffled && index < cards.length ? 'filled' : ''}}" wx:for="{{spread.cardCount}}" wx:key="index">
+        <!-- 统一image标签格式：加reverse类 + mode="widthFix"（微信小程序最优适配） -->
+        <image 
+        wx:if="{{shuffled && cards[index]}}" 
+        class="card-image {{cards[index].isReverse ? 'reverse' : ''}}"
+        src="{{cards[index].image}}"
+        mode="widthFix"
+      ></image>
+        <text wx:else class="card-placeholder">?</text>
+      </view>
+    </view>
+    <view class="actions">
+      <button class="action-btn shuffle-btn {{dealing ? 'dealing' : ''}}" bindtap="shuffleCards" disabled="{{dealing}}">{{dealing ? '洗牌中...' : '洗牌发牌'}}</button>
+      <button class="action-btn result-btn" bindtap="viewResult" disabled="{{!shuffled}}">结果分析</button>
+    </view>
+  </block>
+</view>

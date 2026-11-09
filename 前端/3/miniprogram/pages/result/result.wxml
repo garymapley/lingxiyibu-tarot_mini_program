@@ -1,0 +1,47 @@
+<navigation-bar title="占卜结果" back="{{true}}" color="white" background="transparent" extClass="nav-light"></navigation-bar>
+
+<!-- 给根view加page类名，对应scss的.page样式 -->
+<view class="page">
+  <!-- 本次牌面区域（红框样式） -->
+  <view class="card-section">
+    <text class="section-title">本次牌面</text>
+    <view class="card-grid">
+      <view class="card-item" wx:for="{{cards}}" wx:key="index">
+        <view class="card-wrap">
+          <image 
+            src="{{item.image}}" 
+            class="card-img {{item.isReverse ? 'reverse' : ''}}"
+            mode="widthFix"
+          ></image>
+        </view>
+        <text class="card-name">{{item.name}}</text>
+        <text class="card-pos">{{item.isReverse ? '逆位' : '正位'}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 整体总结 -->
+  <view class="content-section">
+    <text class="section-title">整体总结</text>
+    <view class="summary-box">
+      <text class="summary-tag">占卜结果</text>
+      <text class="summary-text">{{interpretation.summary}}</text>
+    </view>
+  </view>
+
+  <!-- 详细解读内容 -->
+  <view class="content-section">
+    <text class="section-title">详细解读内容</text>
+    <view class="detail-box">
+      <text class="detail-text">{{interpretation.detail}}</text>
+    </view>
+  </view>
+
+  <!-- 行动建议 -->
+  <view class="content-section">
+    <text class="section-title">行动建议</text>
+    <view class="advice-box">
+      <text class="advice-text">{{interpretation.advice}}</text>
+    </view>
+  </view>
+</view>
