@@ -14,7 +14,7 @@
 Thumbs.db
 
 # Local/private configuration
-前端/3/project.private.config.json
+frontend/project.private.config.json
 .env
 .env.*
 !.env.example
